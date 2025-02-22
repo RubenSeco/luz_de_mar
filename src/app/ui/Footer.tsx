@@ -3,7 +3,7 @@ import React from 'react';
 
 interface FooterProps {}
 
-const Footer: React.FC<FooterProps> = () => {
+export const Footer: React.FC<FooterProps> = () => {
   return (
     <footer>
       <h1 className='text-black items-center justify-center text-center'>Footer</h1>
@@ -11,5 +11,3 @@ const Footer: React.FC<FooterProps> = () => {
     </footer>
   );
 };
-
-export default Footer;
