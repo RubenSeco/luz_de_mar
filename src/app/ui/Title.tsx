@@ -3,10 +3,10 @@ import Image from 'next/image';
 export const Title = () => {
   return (
     <>
-      <div className=' w-full md:w-6/12 '>
-        <div className='relative h-40 md:h-64'>
+      <div className='md:p-2'>
+        <div className='relative h-36'>
           <Image
-            className='object-contain p-10 md:p-20'
+            className='object-contain p-4 md:p-6'
             fill
             src='/images/LOGOletras.png'
             alt='Title'
