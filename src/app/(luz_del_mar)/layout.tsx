@@ -1,7 +1,4 @@
-import Footer from '../ui/Footer';
-import { Header } from '../ui/Header';
-import { Logo } from '../ui/Logo';
-import { Title } from '../ui/Title';
+import { Header, Logo, Title, Footer } from '../ui';
 
 export default function Dashboard({ children }: { children: React.ReactNode }) {
   return (

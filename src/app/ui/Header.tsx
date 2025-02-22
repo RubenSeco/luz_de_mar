@@ -27,8 +27,7 @@ export const Header = () => {
                     <a
                       className='text-gray-500 transition hover:text-gray-500/75'
                       href='/pulseras'>
-                      {' '}
-                      Pulseras{' '}
+                      Pulseras
                     </a>
                   </li>
 
@@ -36,8 +35,7 @@ export const Header = () => {
                     <a
                       className='text-gray-500 transition hover:text-gray-500/75'
                       href='#'>
-                      {' '}
-                      Collares{' '}
+                      Collares
                     </a>
                   </li>
 
@@ -45,8 +43,7 @@ export const Header = () => {
                     <a
                       className='text-gray-500 transition hover:text-gray-500/75'
                       href='#'>
-                      {' '}
-                      Aros{' '}
+                      Aros
                     </a>
                   </li>
 
@@ -54,8 +51,7 @@ export const Header = () => {
                     <a
                       className='text-gray-500 transition hover:text-gray-500/75'
                       href='#'>
-                      {' '}
-                      Llaveros{' '}
+                      Llaveros
                     </a>
                   </li>
                 </ul>
