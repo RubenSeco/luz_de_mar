@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const Header = () => {
   return (
     <>
-      <header className={` bg-white fixed w-full border-b-2 border-b-gray-200`}>
+      <header className='bg-white fixed w-full border-b-2 border-b-gray-200'>
         <div className='mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8'>
           <div className='flex h-16 items-center justify-between'>
             <div className='relative md:flex md:items-center md:gap-12'>
@@ -14,7 +14,7 @@ export const Header = () => {
                   src='/images/LOGOdibujo.jpg'
                   alt='Logo'
                   width={75}
-                  height={64}
+                  height={75}
                 />
                 <span className='sr-only'>Home</span>
               </Link>
