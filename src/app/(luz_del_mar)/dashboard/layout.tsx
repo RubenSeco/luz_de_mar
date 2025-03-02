@@ -1,4 +1,8 @@
+<<<<<<< HEAD:src/app/(luz_del_mar)/dashboard/layout.tsx
 import { Header, Logo, Title, Footer } from '../../ui';
+=======
+import { Header, Logo, Title, Footer } from '../ui';
+>>>>>>> 1e8a6c6eb01bc463d547ae6b0bb691256e15f843:src/app/(luz_del_mar)/layout.tsx
 
 export default function Dashboard({ children }: { children: React.ReactNode }) {
   return (
