@@ -4,7 +4,6 @@ import { Category } from '@prisma/client';
 import { useForm } from 'react-hook-form';
 import { MdOutlinePhotoCamera } from 'react-icons/md';
 import Image from 'next/image';
-import { CldImage } from 'next-cloudinary';
 
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -45,6 +44,9 @@ export const ProductForm = () => {
     formData.append('category', values.category);
     formData.append('image', values.image);
     formData.append('description', values.description);
+    formData.append('slug', values.title.toString().toLowerCase().replace(/ /g, '-').trim());
+
+    console.log(form.getValues().image);
 
     const response = await createUpdateProduct(formData);
     setFormSended(true);
@@ -155,27 +157,18 @@ export const ProductForm = () => {
         />
 
         {form.getValues().image ? (
-          // <Image
-          //   className='rounded-sm shadow-md'
-          //   src={`${form.getValues().image.replace('C:\\fakepath\\', '/images/')}`}
-          //   width={200}
-          //   height={200}
-          //   alt={'Imagen del producto'}
-          // />
-          <CldImage
-            src={`${form.getValues().image.replace('C:\\fakepath\\', '/images/')}`} // Use this sample image or upload your own via the Media Explorer
-            width='500' // Transform the image: auto-crop to square aspect_ratio
-            height='500'
-            crop={{
-              type: 'auto',
-              source: true
-            }}
-            alt={'Imagen'}
+          <Image
+            className='rounded-sm shadow-md'
+            src={`${form.getValues().image.replace('C:\\fakepath\\', '/images/')}`}
+            width={200}
+            height={200}
+            alt={'Imagen del producto'}
           />
         ) : (
           <MdOutlinePhotoCamera className='w-16 h-16 justify-center items-center' />
         )}
-        <Button type='submit'>Submit</Button>
+
+        <Button type='submit'>Guardar</Button>
       </form>
     </Form>
   );
