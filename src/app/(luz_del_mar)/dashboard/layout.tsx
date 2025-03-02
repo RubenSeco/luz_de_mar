@@ -10,9 +10,7 @@ export default function Dashboard({ children }: { children: React.ReactNode }) {
             <Title />
             <Logo />
           </div>
-          <div className='justify-center items-center w-full border m-5 shadow-slate-400 rounded md:flex md:flex-row md:w-9/12'>
-            {children}
-          </div>
+          <div className='columns-2 gap-4 p-5 w-full min-h-full border shadow-slate-400 rounded'>{children}</div>
         </div>
       </div>
       <Footer />

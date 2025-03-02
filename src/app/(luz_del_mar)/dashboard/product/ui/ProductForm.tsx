@@ -72,8 +72,9 @@ export const ProductForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className='space-y-8'>
+        className='flex flex-col space-y-5'>
         {/* Titulo */}
+
         <FormField
           control={form.control}
           name='title'
@@ -107,7 +108,6 @@ export const ProductForm = () => {
             </FormItem>
           )}
         />
-
         {/* Categoria */}
         <FormField
           control={form.control}
@@ -155,13 +155,12 @@ export const ProductForm = () => {
             </FormItem>
           )}
         />
-
         {form.getValues().image ? (
           <Image
             className='rounded-sm shadow-md'
             src={`${form.getValues().image.replace('C:\\fakepath\\', '/images/')}`}
-            width={200}
-            height={200}
+            width={400}
+            height={300}
             alt={'Imagen del producto'}
           />
         ) : (

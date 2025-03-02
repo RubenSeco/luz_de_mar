@@ -12,8 +12,8 @@ export default function Page({ params }: Props) {
   const { id } = params;
 
   return (
-    <>
+    <div className='flex flex-col min-h-screen'>
       <ProductForm />
-    </>
+    </div>
   );
 }
