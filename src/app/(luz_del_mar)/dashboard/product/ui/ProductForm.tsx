@@ -163,10 +163,10 @@ export const ProductForm = () => {
             alt={'Imagen del producto'}
           />
         ) : (
-          <MdOutlinePhotoCamera className='w-16 h-16 justify-center items-center' />
+          <MdOutlinePhotoCamera className='w-full h-24 justify-center items-center' />
         )}
 
-        <Button type='submit'>Guardar</Button>
+        <Button type='submit' className='bg-teal-700 hover:bg-teal-600'>Guardar</Button>
       </form>
     </Form>
   );

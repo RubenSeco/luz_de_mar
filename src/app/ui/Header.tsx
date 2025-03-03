@@ -1,13 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { IoMenu } from 'react-icons/io5';
+
+const Categories: string[] = ['Pulseras', 'Collares', 'Aros', 'Llaveros', 'Conjuntos'];
 
 export const Header = () => {
   return (
     <>
-      <header className='bg-white fixed w-full border-b-2 border-b-gray-200'>
+      <header className='bg-white w-full border-b-2 border-b-gray-200'>
         <div className='mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8'>
           <div className='flex h-16 items-center justify-between'>
-            <div className='relative md:flex md:items-center md:gap-12'>
+            <div className='md:flex md:items-center md:gap-12'>
               <Link href='#'>
                 <Image
                   // fill
@@ -27,55 +30,27 @@ export const Header = () => {
             <div className='hidden md:block'>
               <nav aria-label='Global'>
                 <ul className='flex items-center gap-6 text-sm'>
-                  <li>
-                    <a
-                      className='text-gray-500 transition hover:text-gray-500/75'
-                      href='/pulseras'>
-                      Pulseras
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      className='text-gray-500 transition hover:text-gray-500/75'
-                      href='#'>
-                      Collares
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      className='text-gray-500 transition hover:text-gray-500/75'
-                      href='#'>
-                      Aros
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      className='text-gray-500 transition hover:text-gray-500/75'
-                      href='#'>
-                      Llaveros
-                    </a>
-                  </li>
+                  {Object.values(Categories).map((category) => (
+                    <li key={category}>
+                      <a
+                        className='text-teal-700 transition font-bold hover:text-teal-600-500/75'
+                        href='/pulseras'>
+                        {category}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </nav>
             </div>
 
             <div className='flex items-center gap-4'>
               <div className='sm:flex sm:gap-4'>
-                <a
-                  className='rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow'
-                  href='#'>
-                  Login
-                </a>
-
                 <div className='hidden sm:flex'>
-                  <a
-                    className='rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600'
+                  <Link
+                    className='rounded-md bg-gray-100 p-2 text-4xl font-medium text-teal-600'
                     href='#'>
-                    Register
-                  </a>
+                    <IoMenu />
+                  </Link>
                 </div>
               </div>
 
