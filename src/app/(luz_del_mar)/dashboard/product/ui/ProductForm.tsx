@@ -46,7 +46,6 @@ export const ProductForm = () => {
     formData.append('description', values.description);
     formData.append('slug', values.title.toString().toLowerCase().replace(/ /g, '-').trim());
 
-
     const response = await createProduct(formData);
     setFormSended(true);
 
@@ -71,72 +70,75 @@ export const ProductForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className='flex flex-col space-y-5'>
+        className='flex flex-col sm:grid sm:grid-cols-2'>
         {/* Titulo */}
 
-        <FormField
-          control={form.control}
-          name='title'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Titulo</FormLabel>
-              <FormControl>
-                <Input onChange={field.onChange} />
-              </FormControl>
-              <FormDescription></FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        {/* Descripcion */}
-        <FormField
-          control={form.control}
-          name='description'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Descripción</FormLabel>
-              <FormControl>
-                <Textarea
-                  rows={5}
-                  onChange={field.onChange}
-                  placeholder='Descripción del producto'
-                />
-              </FormControl>
-              <FormDescription></FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        {/* Categoria */}
-        <FormField
-          control={form.control}
-          name='category'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Categoría</FormLabel>
-              <Select
-                onValueChange={field.onChange}
-                defaultValue={field.value}>
-                <SelectTrigger className='w-[180px]'>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {Object.values(Category).map((category) => (
-                    <SelectItem
-                      key={category}
-                      value={category}>
-                      {category}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <FormDescription></FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        <div className='mx-4'>
+          <FormField
+            control={form.control}
+            name='title'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Titulo</FormLabel>
+                <FormControl>
+                  <Input onChange={field.onChange} />
+                </FormControl>
+                <FormDescription></FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          {/* Descripcion */}
+          <FormField
+            control={form.control}
+            name='description'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Descripción</FormLabel>
+                <FormControl>
+                  <Textarea
+                    rows={5}
+                    onChange={field.onChange}
+                    placeholder='Descripción del producto'
+                  />
+                </FormControl>
+                <FormDescription></FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          {/* Categoria */}
+          <FormField
+            control={form.control}
+            name='category'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Categoría</FormLabel>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}>
+                  <SelectTrigger className='w-[180px]'>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {Object.values(Category).map((category) => (
+                      <SelectItem
+                        key={category}
+                        value={category}>
+                        {category}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <FormDescription></FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
 
-        {/* Imagen */}
+
+        <div className='flex flex-col h-full justify-center items-center'>
         <FormField
           control={form.control}
           name='image'
@@ -156,17 +158,27 @@ export const ProductForm = () => {
         />
         {form.getValues().image ? (
           <Image
-            className='rounded-sm shadow-md'
+            className='rounded-sm shadow-md object-cover'
             src={`${form.getValues().image.replace('C:\\fakepath\\', '/images/')}`}
-            width={400}
-            height={300}
+            width={250}
+            height={200}
             alt={'Imagen del producto'}
           />
         ) : (
           <MdOutlinePhotoCamera className='w-full h-24 justify-center items-center' />
         )}
+        </div>
+        {/* Imagen */}
 
-        <Button type='submit' className='bg-teal-700 hover:bg-teal-600'>Guardar</Button>
+
+
+        <div className='flex justify-center'>
+          <Button
+            type='submit'
+            className='bg-teal-700 hover:bg-teal-600'>
+            Guardar
+          </Button>
+        </div>
       </form>
     </Form>
   );

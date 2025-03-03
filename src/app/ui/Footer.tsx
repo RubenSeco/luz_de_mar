@@ -1,4 +1,8 @@
+import Link from 'next/link';
 import React from 'react';
+
+import { IoLogoFacebook, IoLogoInstagram } from 'react-icons/io5';
+
 // import './Footer.css';
 
 interface FooterProps {}
@@ -6,8 +10,27 @@ interface FooterProps {}
 export const Footer: React.FC<FooterProps> = () => {
   return (
     <footer>
-      <h1 className='text-black items-center justify-center text-center'>Footer</h1>
-      {/* Add your footer content here */}
+      <footer className='flex flex-col w-full justify-center bg-gray-200'>
+        <div className='pt-3 w-full'>
+          <div className='mb-3 flex flex-row justify-evenly'>
+            <Link
+              href={'#'}
+              className='text-3xl text-teal-700 transition-all hover:text-teal-600/80'>
+              <IoLogoFacebook />
+            </Link>
+            <Link
+              href={'#'}
+              className='text-3xl text-teal-700 transition-all hover:text-teal-600/80'>
+              <IoLogoInstagram />
+            </Link>
+          </div>
+        </div>
+        {/*Copyright section*/}
+        <div className='bg-gray-300 p-2 text-center text-teal-700 font-bold'>
+          © 2025 Copyright:
+          <span>{'  '}Luz Del Mar</span>
+        </div>
+      </footer>
     </footer>
   );
 };

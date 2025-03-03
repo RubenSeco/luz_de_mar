@@ -29,14 +29,14 @@ export const Header = () => {
 
             <div className='hidden md:block'>
               <nav aria-label='Global'>
-                <ul className='flex items-center gap-6 text-sm'>
+                <ul className='flex items-center gap-6 text-base'>
                   {Object.values(Categories).map((category) => (
                     <li key={category}>
-                      <a
-                        className='text-teal-700 transition font-bold hover:text-teal-600-500/75'
-                        href='/pulseras'>
+                      <Link
+                        className='text-teal-700 transition-all font-bold hover:text-teal-600/80'
+                        href={'#'}>
                         {category}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -44,33 +44,11 @@ export const Header = () => {
             </div>
 
             <div className='flex items-center gap-4'>
-              <div className='sm:flex sm:gap-4'>
-                <div className='hidden sm:flex'>
-                  <Link
-                    className='rounded-md bg-gray-100 p-2 text-4xl font-medium text-teal-600'
-                    href='#'>
-                    <IoMenu />
-                  </Link>
-                </div>
-              </div>
-
-              <div className='block md:hidden'>
-                <button className='rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    className='size-5'
-                    fill='none'
-                    viewBox='0 0 24 24'
-                    stroke='currentColor'
-                    strokeWidth='2'>
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      d='M4 6h16M4 12h16M4 18h16'
-                    />
-                  </svg>
-                </button>
-              </div>
+              <Link
+                className='rounded-md bg-gray-100 p-2 text-4xl  text-teal-700 hover:text-teal-600/80'
+                href='#'>
+                <IoMenu />
+              </Link>
             </div>
           </div>
         </div>
