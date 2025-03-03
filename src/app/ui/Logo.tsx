@@ -5,9 +5,10 @@ export const Logo = () => {
     <>
       <div className='hidden md:block relative w-full h-36 md:h-64'>
         <Image
-          fill
           className='object-cover'
           src={'/images/LOGOdibujo.jpg'}
+          height={1000}
+          width={1000}
           alt={'Principal'}
         />
       </div>

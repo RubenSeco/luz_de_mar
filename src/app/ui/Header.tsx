@@ -12,9 +12,13 @@ export const Header = () => {
                 <Image
                   // fill
                   src='/images/LOGOdibujo.jpg'
+                  style={{
+                    height: 'auto',
+                    width: 'auto'
+                  }}
                   alt='Logo'
-                  width={75}
-                  height={75}
+                  width={50}
+                  height={50}
                 />
                 <span className='sr-only'>Home</span>
               </Link>

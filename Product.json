@@ -1,0 +1,26 @@
+[
+  {
+    "id": "5f2448fd-f28e-4580-892a-f9b47854bd69",
+    "description": "Descripción",
+    "image": "https://res.cloudinary.com/dqmr8bgui/image/upload/v1741001220/w8kspoyqkg77f8ri88yo.jpg",
+    "category": "necklace",
+    "slug": "collar-de-perlas",
+    "title": "Collar de perlas"
+  },
+  {
+    "id": "b45c01ea-de87-434a-bc3c-09c923ed6ecb",
+    "description": "Descripción",
+    "image": "https://res.cloudinary.com/dqmr8bgui/image/upload/v1741005612/pryqz3dmzcjmkybjoyc4.jpg",
+    "category": "earring",
+    "slug": "aros-nuevo",
+    "title": "Aros nuevo"
+  },
+  {
+    "id": "b42561cb-5abd-4ed8-99e6-0ce82f14e607",
+    "description": "Descripción de aros usados",
+    "image": "https://res.cloudinary.com/dqmr8bgui/image/upload/v1741005676/ip6ctryzlt0qvmrycwbf.jpg",
+    "category": "necklace",
+    "slug": "aros-usados",
+    "title": "Aros usados"
+  }
+]

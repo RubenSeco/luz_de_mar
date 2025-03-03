@@ -13,7 +13,7 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
-import { createUpdateProduct } from '@/app/actions/create-update-product';
+import { createProduct } from '@/app/actions/create-product';
 import { useEffect, useState } from 'react';
 
 const formSchema = z.object({
@@ -46,9 +46,8 @@ export const ProductForm = () => {
     formData.append('description', values.description);
     formData.append('slug', values.title.toString().toLowerCase().replace(/ /g, '-').trim());
 
-    console.log(form.getValues().image);
 
-    const response = await createUpdateProduct(formData);
+    const response = await createProduct(formData);
     setFormSended(true);
 
     if (!!response?.error) {

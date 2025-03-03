@@ -7,7 +7,12 @@ export const Title = () => {
         <div className='relative h-36'>
           <Image
             className='object-contain p-4 md:p-6'
-            fill
+            style={{
+              height: 'auto',
+              width: 'auto'
+            }}
+            height={1000}
+            width={1000}
             src='/images/LOGOletras.png'
             alt='Title'
           />
