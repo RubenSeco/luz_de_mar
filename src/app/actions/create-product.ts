@@ -14,6 +14,9 @@ export const createProduct = async (formdata: FormData) => {
 
   const imagetoSave = product.image.toString().replace("C:\\fakepath\\", "D:/PROYECTOS/luz-del-mar/public/images/");
   const imageUploaded = await uploadImage(imagetoSave);
+  const imageName = imageUploaded?.split("/").pop()?.split(".")[0];
+
+
   if (imageUploaded) {
     product.image = imageUploaded;
   } else {
@@ -38,8 +41,12 @@ export const createProduct = async (formdata: FormData) => {
 
   } catch (error) {
     if (error.code === 'P2002') {
+
       return { error: 'Product already exists' };
 
+    }
+    if (imageName) {
+      await cloudinary.uploader.destroy(imageName);
     }
     return { error: error.message };
   }
