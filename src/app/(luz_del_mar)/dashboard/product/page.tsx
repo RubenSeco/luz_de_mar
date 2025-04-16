@@ -2,17 +2,9 @@
 
 import { ProductForm } from './ui/ProductForm';
 
-interface Props {
-  params: {
-    id: string;
-  };
-}
-
-export default function Page({ params }: Props) {
-  const { id } = params;
-
+export default function Page() {
   return (
-    <div className='flex flex-col w-full'>
+    <div className='flex'>
       <ProductForm />
     </div>
   );

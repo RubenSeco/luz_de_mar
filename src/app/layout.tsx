@@ -1,17 +1,33 @@
 import type { Metadata } from 'next';
-// import localFont from 'next/font/local';
 import './globals.css';
-import { montserrat } from './styles/fonts';
 
 export const metadata: Metadata = {
-  title: 'Luz del Mar',
-  description: 'Luz del Mar'
+  title: {
+    template: '%s - Luz del Mar',
+    default: 'Luz del Mar'
+  },
+  description: 'Productos de bijouterie',
+  icons: {
+    icon: [
+      {
+        url: '/favicon.ico', // /public path
+        href: '/favicon.ico' // /public path
+      }
+    ]
+  }
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang='en'>
-      <body className={`bg-white ${montserrat.className} antialiased`}>{children}</body>
+      <head>
+        <link
+          rel='icon'
+          href='/favicon.ico'
+          sizes='any'
+        />
+      </head>
+      <body className='bg-white'>{children}</body>
     </html>
   );
 }

@@ -1,0 +1,9 @@
+@layer base {
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('/src/app/styles/fonts/montserrat-alternates/MontserratAlternates-Medium.ttf') format('truetype');
+  }
+  @theme {
+    --font-montserrat: Montserrat, sans-serif;
+  }
+}

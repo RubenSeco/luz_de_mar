@@ -1,8 +1,30 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { IoMenu } from 'react-icons/io5';
+// import { IoMenu } from 'react-icons/io5';
+import { DropDownMenu } from './DropDownMenu';
 
-const Categories: string[] = ['Pulseras', 'Collares', 'Aros', 'Llaveros', 'Conjuntos'];
+export const Categories = [
+  {
+    name: 'bracelet',
+    title: 'Pulseras'
+  },
+  {
+    name: 'necklace',
+    title: 'Collares'
+  },
+  {
+    name: 'earring',
+    title: 'Aros'
+  },
+  {
+    name: 'key_chain',
+    title: 'Llaveros'
+  },
+  {
+    name: 'set',
+    title: 'Conjuntos'
+  }
+];
 
 export const Header = () => {
   return (
@@ -11,9 +33,8 @@ export const Header = () => {
         <div className='mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8'>
           <div className='flex h-16 items-center justify-between'>
             <div className='md:flex md:items-center md:gap-12'>
-              <Link href='#'>
+              <Link href='/dashboard'>
                 <Image
-                  // fill
                   src='/images/LOGOdibujo.jpg'
                   style={{
                     height: 'auto',
@@ -23,7 +44,6 @@ export const Header = () => {
                   width={50}
                   height={50}
                 />
-                <span className='sr-only'>Home</span>
               </Link>
             </div>
 
@@ -31,11 +51,11 @@ export const Header = () => {
               <nav aria-label='Global'>
                 <ul className='flex items-center gap-6 text-base'>
                   {Object.values(Categories).map((category) => (
-                    <li key={category}>
+                    <li key={category.name}>
                       <Link
-                        className='text-teal-700 transition-all font-bold hover:text-teal-600/80'
-                        href={'#'}>
-                        {category}
+                        className='text-teal-700 transition-all font-montserrat font-bold hover:text-teal-600/80'
+                        href={`/dashboard/${category.name}`}>
+                        {category.title}
                       </Link>
                     </li>
                   ))}
@@ -43,13 +63,8 @@ export const Header = () => {
               </nav>
             </div>
 
-            <div className='flex items-center gap-4'>
-              <Link
-                className='rounded-md bg-gray-100 p-2 text-4xl  text-teal-700 hover:text-teal-600/80'
-                href='#'>
-                <IoMenu />
-              </Link>
-            </div>
+            <div className='flex items-center gap-4 text-black z-30 bg-teal-600'></div>
+            <DropDownMenu />
           </div>
         </div>
       </header>

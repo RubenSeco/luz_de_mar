@@ -1,14 +1,21 @@
 
 "use server";
 
-import { prisma } from "@/lib/prisma";
+
+import prisma from "@/lib/prisma";
+
 import { v2 as cloudinary } from "cloudinary";
 
 cloudinary.config(process.env.CLOUDINARY_URL ?? "");
 
 export const createProduct = async (formdata: FormData) => {
 
+  if (!formdata) {
+    throw new Error("Form data is required");
+  }
   const product = Object.fromEntries(formdata);
+
+  console.log(product);
 
   // product.slug = product.title.toString().toLowerCase().replace(/ /g, "-").trim();
 
@@ -29,7 +36,8 @@ export const createProduct = async (formdata: FormData) => {
 
       const newProduct = await tx.product.create({
         data: {
-          ...product
+
+          ...product,
         }
       });
 

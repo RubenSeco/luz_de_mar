@@ -22,7 +22,11 @@ const formSchema = z.object({
   }),
   category: z.nativeEnum(Category).default(Category.necklace),
   image: z.string().url({ message: 'Image must be a valid URL.' }),
-  description: z.string().min(2, { message: 'Description must be at least 2 characters.' }).max(255)
+  description: z
+    .string()
+    .min(2, { message: 'Description must be at least 2 characters.' })
+    .max(255)
+    .default(`Lorem ipsum dolor sit amet consectetur adipisicing elit. Error adipisci nisi culpa iusto saepe quidem.`)
 });
 
 export const ProductForm = () => {
@@ -33,7 +37,7 @@ export const ProductForm = () => {
       title: '',
       category: Category.necklace,
       image: '',
-      description: ''
+      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi aspernatur est, repellat non qui?`
     }
   });
 
@@ -70,7 +74,7 @@ export const ProductForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className='flex flex-col sm:grid sm:grid-cols-2'>
+        className='w-full flex flex-col content-between sm:grid sm:grid-cols-2 text-teal-700'>
         {/* Titulo */}
 
         <div className='mx-4'>
@@ -137,45 +141,42 @@ export const ProductForm = () => {
           />
         </div>
 
-
-        <div className='flex flex-col h-full justify-center items-center'>
-        <FormField
-          control={form.control}
-          name='image'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Imagen</FormLabel>
-              <FormControl>
-                <Input
-                  onChange={field.onChange}
-                  type='file'
-                />
-              </FormControl>
-              <FormDescription></FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        {form.getValues().image ? (
-          <Image
-            className='rounded-sm shadow-md object-cover'
-            src={`${form.getValues().image.replace('C:\\fakepath\\', '/images/')}`}
-            width={250}
-            height={200}
-            alt={'Imagen del producto'}
+        <div className='place-items-center'>
+          <FormField
+            control={form.control}
+            name='image'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Imagen</FormLabel>
+                <FormControl>
+                  <Input
+                    onChange={field.onChange}
+                    type='file'
+                  />
+                </FormControl>
+                <FormDescription></FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-        ) : (
-          <MdOutlinePhotoCamera className='w-full h-24 justify-center items-center' />
-        )}
+          {form.getValues().image ? (
+            <Image
+              className='rounded-sm shadow-md object-cover'
+              src={`${form.getValues().image.replace('C:\\fakepath\\', '/images/')}`}
+              width={350}
+              height={200}
+              alt={'Imagen del producto'}
+            />
+          ) : (
+            <MdOutlinePhotoCamera className='w-full h-24 justify-center items-center' />
+          )}
         </div>
         {/* Imagen */}
 
-
-
-        <div className='flex justify-center'>
+        <div className='fixed bottom-36 left-6/12 col-span-2 w-full'>
           <Button
             type='submit'
-            className='bg-teal-700 hover:bg-teal-600'>
+            className='bg-teal-700 hover:bg-teal-600 text-white'>
             Guardar
           </Button>
         </div>

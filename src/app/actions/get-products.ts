@@ -1,15 +1,27 @@
-import { prisma } from "@/lib/prisma";
+"use server";
 
-export const getProductBySlug = async (slug:string) => {
+import prisma from "@/lib/prisma";
+import { Category } from "@prisma/client";
 
-  const product = await prisma.product.findUnique(
+export const getProductBySlug = async (slug: Category) => {
+
+  const products = await prisma.product.findMany(
     {
       where: {
-        slug
+        category: slug
       }
     }
   );
 
-  return product;
+  return products;
+
+};
+
+export const getProducts = async () => {
+
+  const products = await prisma.product.findMany();
+
+  return products;
+
 
 };

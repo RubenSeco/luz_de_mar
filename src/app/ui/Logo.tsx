@@ -3,7 +3,7 @@ import Image from 'next/image';
 export const Logo = () => {
   return (
     <>
-      <div className='hidden md:block relative w-full h-36 md:h-64'>
+      <div className='hidden sm:block'>
         <Image
           className='object-cover'
           src={'/images/LOGOdibujo.jpg'}
