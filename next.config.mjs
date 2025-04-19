@@ -9,6 +9,12 @@ const config = {
         port: '',
         pathname: '/dqmr8bgui/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'img.daisyui.com',
+        port: '',
+        pathname: '',
+      },
     ],
   },
 };

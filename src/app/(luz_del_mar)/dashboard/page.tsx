@@ -1,6 +1,6 @@
-import { getProducts } from '@/app/actions/get-products';
-import CategoryCard from '@/app/ui/CategoryCard';
+import { getProducts } from '@/actions/get-products';
 import { Category, Product } from '@prisma/client';
+import { CategoryCard } from './ui';
 
 export default async function NamePage() {
   const products = await getProducts();
@@ -19,15 +19,13 @@ export default async function NamePage() {
   }
 
   return (
-    
     <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-36'>
-      {
-        oneProductByCategory.map((product) => (
-
-      <CategoryCard key={product.id} product={product} />
-
-        ))
-      }
+      {oneProductByCategory.map((product) => (
+        <CategoryCard
+          key={product.id}
+          product={product}
+        />
+      ))}
     </div>
   );
 }

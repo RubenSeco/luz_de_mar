@@ -1,4 +1,5 @@
-import { Header, Logo, Title, Footer } from '../../ui';
+import { Footer, Header, Logo, Title } from "./ui";
+
 
 export default function Dashboard({ children }: { children: React.ReactNode }) {
   return (
